@@ -50,6 +50,10 @@ pacman can eat ghost.
 pacman has a certain amount of lives.
 
 
+Wireframes:
+![before game modal] (./Before_Game_Modal.jpeg)
+
+
 # Classes:
 - Board (pac-dots?)
 - Pacman
