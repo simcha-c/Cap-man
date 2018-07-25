@@ -51,8 +51,8 @@ pacman has a certain amount of lives.
 
 
 # Wireframes:
-![before game - modal](Before_Game_Modal.png)
-![during game](During_Game.png)
+![before game - modal](./images/Before_Game_Modal.png)
+![during game](./images/During_Game.png)
 
 
 # Classes:
