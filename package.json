@@ -1,0 +1,33 @@
+{
+  "name": "Pacman",
+  "version": "1.0.0",
+  "description": "This is a clone of the popular retro arcade game! Collect the dots to move on to the next level. Make sure not to get possessed by the ghosts!",
+  "main": "webpack.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch --mode=development",
+    "postinstall": "webpack --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simcha-c/Pacman.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simcha-c/Pacman/issues"
+  },
+  "homepage": "https://github.com/simcha-c/Pacman#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0"
+  }
+}
