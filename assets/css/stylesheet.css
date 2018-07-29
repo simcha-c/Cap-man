@@ -1,7 +1,23 @@
+@font-face {
+  font-family: 'PacFontCrack';
+  src: url('crackman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PacFontLot';
+  src: url('lot.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: PacFontCrack;
+  color: blue;
 }
 
 /* .title {
