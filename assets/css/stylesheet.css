@@ -20,6 +20,12 @@ body {
   color: blue;
 }
 
+canvas {
+  background-color: black;
+  width: 600px;
+  height: 715px;
+}
+
 /* .title {
 
 } */
