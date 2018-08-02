@@ -40,16 +40,18 @@
   font-style: normal;
 }
 
-html {
-  font-family: OrbitronBlack;
-}
-
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: PacFontCrack;
-  color: blue;
+  justify-content: center;
+  min-height: -webkit-fill-available;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 canvas {
@@ -57,14 +59,44 @@ canvas {
   width: 600px;
   height: 715px;
   font-family: OrbitronBlack;
+  font-size: 40px;
+  margin: 0 auto;
+  border: 10px solid white;
 }
 
-/* .title {
+.about-me {
+  font-family: OrbitronBlack;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 600px;
+}
 
-} */
+.about-me p {
+  padding: 10px;
+  color: blue;
+  line-height: 20px;
+  vertical-align: middle;
+  letter-spacing: 1.5px;
+}
 
-/* #maze-canvas {
-  border: 1px solid black;
-  width: 500px;
-  height: 600px;
-} */
+.bullet {
+  font-size: 40px;
+  margin-top: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
