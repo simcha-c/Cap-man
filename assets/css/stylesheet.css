@@ -12,6 +12,38 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'OrbitronBlack';
+  src: url('orbitronblack.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orbitron-Bold';
+  src: url('Orbitron-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orbitron-Medium';
+  src: url('Orbitron-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OrbitronRegular';
+  src: url('Orbitron-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: OrbitronBlack;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -24,6 +56,7 @@ canvas {
   background-color: black;
   width: 600px;
   height: 715px;
+  font-family: OrbitronBlack;
 }
 
 /* .title {
