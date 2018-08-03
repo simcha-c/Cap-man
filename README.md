@@ -1,4 +1,4 @@
-# Pacman
+# Cap-Man
 
 This is a clone of the popular retro arcade game!
 Collect the dots to move on to the next level. Make sure not to get possessed by the ghosts!
@@ -12,13 +12,13 @@ Collect the dots to move on to the next level. Make sure not to get possessed by
 # MVP's:
 - Board
 - Pac-Dots
-- Pacman
+- Capman
 - Movement
 - Sound
 - Collision
 - Score
 - Ghosts
-- Ghost/Pacman collision
+- Ghost/Capman collision
 - Power Pellets
 - Change of powers with power pellet
 - Lives
@@ -32,22 +32,22 @@ BONUS:
 Step by step:
 create board with grid/maze
 add pac-dots
-add Pacman
-pacman can move around board.
-pacman can move around board in the allowed spots.
-pacman can go through the tunnel.
-Pacman can eat pac-dots.
+add Capman
+Capman can move around board.
+Capman can move around board in the allowed spots.
+Capman can go through the tunnel.
+Capman can eat pac-dots.
 Add sound.
 score is calculated.
 add ghost to board.
 add movement to ghosts. (each ghost differently)
-ghost can get pacman out on collision.
+ghost can get Capman out on collision.
 create game over view (with score showing).
 add flashing power pellets to board.
-when pacman eats pellet, pacman should become bigger.
+when Capman eats pellet, Capman should become bigger.
 ghosts should become blue and run away.
-pacman can eat ghost.
-pacman has a certain amount of lives.
+Capman can eat ghost.
+Capman has a certain amount of lives.
 
 
 # Wireframes:
@@ -57,7 +57,7 @@ pacman has a certain amount of lives.
 
 # Classes:
 - Board (pac-dots?)
-- Pacman
+- Capman
 - Game
 - Audio
 - Ghosts
