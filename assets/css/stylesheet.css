@@ -47,6 +47,7 @@ body {
   justify-content: center;
   min-height: -webkit-fill-available;
   background-color: black;
+  overflow: hidden;
 }
 
 a {
