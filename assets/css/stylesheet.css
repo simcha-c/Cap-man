@@ -40,6 +40,10 @@
   font-style: normal;
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -47,7 +51,6 @@ body {
   justify-content: center;
   min-height: -webkit-fill-available;
   background-color: black;
-  overflow: hidden;
 }
 
 a {
