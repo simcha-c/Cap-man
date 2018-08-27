@@ -26,7 +26,7 @@ I think conceptually, the toughest part of the project was creating the board. A
 ```
 However, that direction took too long, was very tedious and unreliable. Therefore, I went with a 2d array in order to create the grid. 
 
-### Key:
+##### Grid Key:
 - 0 => wall
 - 1 => dot
 - 2 => power pellet
