@@ -1,5 +1,7 @@
 # Cap-Man
 
+[Live](https://simchacohen.com/CapMan/)
+
 This is a clone of the popular retro arcade game!
 Collect the dots to move on to the next level. Make sure not to get possessed by the ghosts!
 
@@ -9,57 +11,55 @@ Collect the dots to move on to the next level. Make sure not to get possessed by
 - Vanilla JavaScript
 - Object Oriented Programming
 
-# MVP's:
-- Board
-- Pac-Dots
-- Capman
-- Movement
-- Sound
-- Collision
-- Score
-- Ghosts
-- Ghost/Capman collision
-- Power Pellets
-- Change of powers with power pellet
-- Lives
+# Process:
+I think conceptually, the toughest part of the project was creating the board. At first, I started by drawing out the map manually with coordinates of where the walls should be. 
+```javascript
+// border
+  const radius = 10;
+  // TOP HALF
+  c.beginPath();
+  c.moveTo(20, 270);
+  // left middle part
+  c.arcTo(200, 270, 200, 260, radius);
+  c.arcTo(200, 200, 190, 200, radius);
+  c.arcTo(20, 200, 20, 190, radius);
+```
+However, that direction took too long, was very tedious and unreliable. Therefore, I went with a 2d array in order to create the grid. 
+```javascript
+  this.grid = [
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 0
+      [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0], // 1
+      [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0], // 2
+      [0, 2, 0, 3, 3, 0, 1, 0, 3, 3, 3, 0, 1, 0, 0, 1, 0, 3, 3, 3, 0, 1, 0, 3, 3, 0, 2, 0], // 3
+      [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0], // 4
+      [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0], // 5
+      [0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0], // 6
+      [0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0], // 7
+      [0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0], // 8
+      [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0], // 9
+      [6, 6, 6, 6, 6, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 6, 6, 6, 6, 6], // 10
+      [6, 6, 6, 6, 6, 0, 1, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 1, 0, 6, 6, 6, 6, 6], // 11
+      [6, 6, 6, 6, 6, 0, 1, 0, 0, 3, 0, 0, 0, 5, 5, 0, 0, 0, 3, 0, 0, 1, 0, 6, 6, 6, 6, 6], // 12
+      [0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 0, 3, 3, 3, 3, 3, 3, 0, 3, 0, 0, 1, 0, 0, 0, 0, 0, 0], // 13
+      [4, 3, 3, 3, 3, 3, 1, 3, 3, 3, 0, 3, 3, 3, 3, 3, 3, 0, 3, 3, 3, 1, 3, 3, 3, 3, 3, 4], // 14
+      [0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 0, 3, 3, 3, 3, 3, 3, 0, 3, 0, 0, 1, 0, 0, 0, 0, 0, 0], // 15
+      [6, 6, 6, 6, 6, 0, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 0, 6, 6, 6, 6, 6], // 16
+      [6, 6, 6, 6, 6, 0, 1, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 1, 0, 6, 6, 6, 6, 6], // 17
+      [6, 6, 6, 6, 6, 0, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 0, 6, 6, 6, 6, 6], // 18
+      [0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 0, 0, 0, 0, 0, 0], // 19
+      [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0], // 20
+      [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0], // 21
+      [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0], // 22
+      [0, 2, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 2, 0], // 23
+      [0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0], // 24
+      [0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0], // 25
+      [0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0], // 26
+      [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0], // 27
+      [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0], // 28
+      [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0], // 29
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 30
+    ];
+```
+With the 2d array in place, interating over the array generates the board. Additionally, the 2d array creates a quick lookup time for evaluating collision detection.  All in all, the 2d array helped design better, more efficient code while being super flexible to any change necessary.
 
-BONUS:
-- More levels
-- Fruits for more points
-- Between level animations.
-- Multi-Player
 
-Step by step:
-create board with grid/maze
-add pac-dots
-add Capman
-Capman can move around board.
-Capman can move around board in the allowed spots.
-Capman can go through the tunnel.
-Capman can eat pac-dots.
-Add sound.
-score is calculated.
-add ghost to board.
-add movement to ghosts. (each ghost differently)
-ghost can get Capman out on collision.
-create game over view (with score showing).
-add flashing power pellets to board.
-when Capman eats pellet, Capman should become bigger.
-ghosts should become blue and run away.
-Capman can eat ghost.
-Capman has a certain amount of lives.
-
-
-# Wireframes:
-![before game - modal](./assets/images/Before_Game_Modal.png)
-![during game](./assets/images/During_Game.png)
-
-
-# Classes:
-- Board (pac-dots?)
-- Capman
-- Game
-- Audio
-- Ghosts
-- Power Pellets
-- KeyPresses
