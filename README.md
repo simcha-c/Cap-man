@@ -72,4 +72,9 @@ However, that direction took too long, was very tedious and unreliable. Therefor
 ```
 With the 2d array in place, iterating over the array generates the board. Additionally, the 2d array creates a quick lookup time for evaluating collision detection.  All in all, the 2d array helped design better, more efficient code while being super flexible to any change necessary.
 
+# Future Features: 
+- Add pacman dying animation
+- Add next level screen
+- Add blinking to indicate power ending transition
+- Add smarter AI for ghosts
 
