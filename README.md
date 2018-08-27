@@ -17,14 +17,24 @@ I think conceptually, the toughest part of the project was creating the board. A
 // border
   const radius = 10;
   // TOP HALF
-  c.beginPath();
-  c.moveTo(20, 270);
+  ctx.beginPath();
+  ctx.moveTo(20, 270);
   // left middle part
-  c.arcTo(200, 270, 200, 260, radius);
-  c.arcTo(200, 200, 190, 200, radius);
-  c.arcTo(20, 200, 20, 190, radius);
+  ctx.arcTo(200, 270, 200, 260, radius);
+  ctx.arcTo(200, 200, 190, 200, radius);
+  ctx.arcTo(20, 200, 20, 190, radius);
 ```
 However, that direction took too long, was very tedious and unreliable. Therefore, I went with a 2d array in order to create the grid. 
+
+### Key:
+- 0 => wall
+- 1 => dot
+- 2 => power pellet
+- 3 => empty
+- 4 => tunnel
+- 5 => one way wall for ghosts
+- 6 => wall
+
 ```javascript
   this.grid = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 0
@@ -60,6 +70,6 @@ However, that direction took too long, was very tedious and unreliable. Therefor
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // 30
     ];
 ```
-With the 2d array in place, interating over the array generates the board. Additionally, the 2d array creates a quick lookup time for evaluating collision detection.  All in all, the 2d array helped design better, more efficient code while being super flexible to any change necessary.
+With the 2d array in place, iterating over the array generates the board. Additionally, the 2d array creates a quick lookup time for evaluating collision detection.  All in all, the 2d array helped design better, more efficient code while being super flexible to any change necessary.
 
 
